@@ -6,7 +6,7 @@ empty = ["desktopapplications"]
 
 [[providers.prefixes]]
 prefix = "="
-provider = "calc"
+provider = "calc"               # Calculator
 
 [keybinds]
 close = ["Escape"]
