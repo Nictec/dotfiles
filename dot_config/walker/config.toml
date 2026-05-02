@@ -1,8 +1,12 @@
 theme = "default"
 
 [providers]
-default = ["desktopapplications", "runner"]
+default = ["desktopapplications", "runner", "calc"]
 empty = ["desktopapplications"]
+
+[[providers.prefixes]]
+prefix = "="
+provider = "calc"
 
 [keybinds]
 close = ["Escape"]
