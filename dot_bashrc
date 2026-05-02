@@ -12,5 +12,8 @@ PS1='[\u@\h \W]\$ '
 # custom aliases
 alias vi=nvim
 
+# ENV Variables
+export EDITOR="/bin/nvim"
+
 # prompt
 eval "$(starship init bash)"
