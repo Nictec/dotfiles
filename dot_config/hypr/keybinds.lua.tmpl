@@ -1,0 +1,74 @@
+local vars = require("vars")
+local mainMod = vars.mainMod
+
+-- Helper to make bind calls cleaner
+local bind = hl.bind
+local dsp = hl.dsp
+
+-----------------------
+-- App Launchers ------
+-----------------------
+bind(mainMod .. " + Q", dsp.exec_cmd("uwsm app -- " .. vars.terminal))
+bind(mainMod .. " + C", dsp.window.close())
+bind(mainMod .. " + M", dsp.exec_cmd("uwsm stop"))
+bind(mainMod .. " + E", dsp.exec_cmd("uwsm app -- " .. vars.fileManager))
+hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+bind(mainMod .. " + R", dsp.exec_cmd("uwsm app -- " .. vars.menu))
+bind(mainMod .. " + L", dsp.exec_cmd("hyprlock"))
+
+-----------------------
+-- Focus Movement -----
+-----------------------
+-- Passing the direction directly as a string
+hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+
+-----------------------
+-- Workspaces ---------
+-----------------------
+-- Switch workspaces with mainMod + [0-9]
+-- Move active window to a workspace with mainMod + SHIFT + [0-9]
+for i = 1, 10 do
+    local key = i % 10 -- 10 maps to key 0
+    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+end
+
+-----------------------
+-- Special Workspace --
+-----------------------
+hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+
+
+-----------------------
+-- Window Groups ------
+-----------------------
+bind(mainMod .. " + T", dsp.group.toggle())
+
+-----------------------
+-- Multimedia Keys ----
+-----------------------
+-- 'repeating' replaces the old 'binde'
+bind("XF86AudioRaiseVolume",  dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),  { repeating = true })
+bind("XF86AudioLowerVolume",  dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),        { repeating = true })
+bind("XF86AudioMute",         dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),       { repeating = true })
+bind("XF86AudioMicMute",      dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),     { repeating = true })
+bind("XF86MonBrightnessUp",   dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                    { repeating = true })
+bind("XF86MonBrightnessDown", dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                    { repeating = true })
+
+-- 'locked' replaces the old 'bindl'
+bind("XF86AudioNext",  dsp.exec_cmd("playerctl next"),       { locked = true })
+bind("XF86AudioPause", dsp.exec_cmd("playerctl play-pause"), { locked = true })
+bind("XF86AudioPlay",  dsp.exec_cmd("playerctl play-pause"), { locked = true })
+bind("XF86AudioPrev",  dsp.exec_cmd("playerctl previous"),   { locked = true })
+
+-----------
+-- Mouse --
+-----------
+
+bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
+bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
