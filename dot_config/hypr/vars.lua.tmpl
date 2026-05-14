@@ -5,7 +5,8 @@ return {
  
     terminal        = "kitty",
     fileManager     = "thunar",
-    menu            = "walker",
+    menu            = "nc -U /run/user/1000/walker/walker.sock",
+    menuService     = "walker --gapplication-service",
     bar             = "waybar",
     wallpaperd      = "hyprpaper",
     nwManager       = "nm-applet --indicator",

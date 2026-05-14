@@ -34,6 +34,7 @@ hl.config({
 ---------------
 
 hl.on("hyprland.start", function()
+  helpers.exec_uwsm(vars.menuService)
   helpers.exec_uwsm(vars.wallpaperd)
   helpers.exec_uwsm(vars.nwManager)
   helpers.exec_uwsm(vars.notifAgent)

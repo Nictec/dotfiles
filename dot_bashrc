@@ -20,3 +20,6 @@ eval "$(starship init bash)"
 
 # rust
 . "$HOME/.cargo/env"
+
+# kitty
+alias s="kitten ssh"
