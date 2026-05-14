@@ -17,3 +17,6 @@ export EDITOR="/bin/nvim"
 
 # prompt
 eval "$(starship init bash)"
+
+# rust
+. "$HOME/.cargo/env"

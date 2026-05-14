@@ -126,7 +126,7 @@ hl.config({
 
     touchpad = {
       natural_scroll = true,
-      -- TODO: enable two finger right click
+      clickfinger_behavior = true,
     },
   },
 })
@@ -168,7 +168,7 @@ hl.animation({ leaf = "zoomFactor",    enabled = true, speed = 7,    bezier = "q
   hl.workspace_rule({
     workspace = "{{ .workspace }}",
     monitor = "{{ .output }}",
-    default = true
+    default = {{.default}}
   })
 {{- end }}
 
