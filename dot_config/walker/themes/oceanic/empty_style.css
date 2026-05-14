@@ -1,0 +1,72 @@
+/* 
+ * Walker Theme: HyprNL Unified 
+ * Matches: Cyan/Green Gradient + 10px Rounding
+ */
+
+#window {
+  background: transparent;
+}
+
+#box {
+  background: rgba(26, 26, 26, 0.9); /* Matches your shadow/dark base */
+  /* Gradient border simulation using Walker's CSS structure */
+  border: 2px solid #33ccff; 
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+#search {
+  background: rgba(89, 89, 89, 0.3); /* Your inactive_border color */
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+}
+
+#search:focus {
+  outline: none;
+  border: 1px solid #00ff99;
+}
+
+/* Individual list entries */
+#item {
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+/* The "Active" state - matching your border gradient */
+#item:selected {
+  background: linear-gradient(45deg, rgba(51, 204, 255, 0.4), rgba(0, 255, 153, 0.4));
+  border: 1px solid #00ff99;
+}
+
+#text {
+  color: #ffffff;
+  font-family: "Sans"; /* Matches your groupbar font */
+  font-size: 14px;
+}
+
+#label {
+  color: #33ccff; /* Primary accent for sub-labels */
+  font-size: 11px;
+  margin-left: 10px;
+}
+
+/* Scrollbar styling */
+scrollbar {
+  background: transparent;
+}
+
+trough {
+  background: rgba(89, 89, 89, 0.2);
+  border-radius: 5px;
+}
+
+slider {
+  background: #33ccff;
+  border-radius: 5px;
+  min-width: 4px;
+}

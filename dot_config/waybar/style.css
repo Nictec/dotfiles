@@ -59,3 +59,8 @@ window#waybar {
 combobox window menu {
  background: @background;
 }
+
+#battery {
+    padding-left: 10px;
+    padding-right: 10px;
+}
